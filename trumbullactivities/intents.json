@@ -1,0 +1,104 @@
+{
+  "intents": [
+    {
+      "name": "AboutIntent",
+      "samples": [
+        "about",
+        "tell me about this place",
+        "more information",
+        "more about trumbull"
+      ],
+      "slots": []
+    },
+    {
+      "name": "ActivityIntent",
+      "samples": [
+        "recommend an activity",
+        "recommend an activity within {distance} miles",
+        "give me an activity",
+        "give me an activity within {distance} miles",
+        "something to do",
+        "activity"
+      ],
+      "slots": [
+        {
+          "name": "distance",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.NoIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.YesIntent",
+      "samples": []
+    },
+    {
+      "name": "BeerIntent",
+      "samples": [
+        "beer",
+        "I want a drink",
+        "drinks",
+        "enjoy a beer"
+      ],
+      "slots": []
+    },
+    {
+      "name": "FoodIntent",
+      "samples": [
+        "dinner",
+        "food",
+        "lunch",
+        "restaurant",
+        "diner"
+      ],
+      "slots": []
+    },
+    {
+      "name": "ShoppingIntent",
+      "samples": [
+        "purchase a gift",
+        "go shopping",
+        "where can I buy stuff"
+      ],
+      "slots": []
+    },
+    {
+      "name": "TriviaIntent",
+      "samples": [
+        "tell me something interesting",
+        "trivia",
+        "fun facts",
+        "trivia question",
+        "give me a piece of local trivia"
+      ],
+      "slots": []
+    },
+    {
+      "name": "WeatherIntent",
+      "samples": [
+        "lets go out",
+        "weather",
+        "temperature",
+        "give me the weather",
+        "check the current weather"
+      ],
+      "slots": []
+    }
+  ]
+}
