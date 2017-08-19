@@ -3,7 +3,7 @@ var languageStrings = {
     'en': {
         'translation': {
             'WELCOME' : "Welcome to the Trumbull Connecticut Guide!",
-            'HELP'    : "To find out more about Trumbull you can ask about shopping, food, trivia, activities, weather or more information.",
+            'HELP'    : "To find out more about Trumbull you can ask about where to go for shopping, places to eat food, interesting trivia, recommend an activity, give me something to do, check the weather or more information about Trumbull.",
             'ABOUT'   : "Trumbull is a town in Fairfield County, Connecticut, bordered by the towns of Monroe, Shelton, Stratford, Bridgeport, Fairfield and Easton.",
             'STOP'    : "Thanks for asking about Trumbull, Bye!"
         }
@@ -16,65 +16,81 @@ var data = {
     "zip"         : "06611",
     "locations" : [
         { "name":"Franco Gianni's Pizza",
-            "address":"8 Broadway Rd", "phone": "203-268-1616",
-            "type": "food",
-            "description": "Enjoy Sumptuous Italian Cuisine & Glorious Pizzas from this family owned and operated restaurant."
+          "address":"8 Broadway Rd",
+          "phone": "203-268-1616",
+          "type": "food",
+          "description": "Enjoy Sumptuous Italian Cuisine & Glorious Pizzas from this family owned and operated restaurant.",
+          "website": "http://francogiannistrumbull.com/"
         },
         { "name":"Plasko's Farm Creamery",
-            "address":"670 Daniels Farm Rd", "phone": "203-268-2716",
-            "type": "food",
-            "description": "One of the oldest family owned farms located in Trumbull growing and sells seasonal produce, and plants. Plasko Country Store has an indoor bakery and ice cream bar"
+          "address":"670 Daniels Farm Rd",
+          "phone": "203-268-2716",
+          "type": "food",
+          "description": "One of the oldest family owned farms located in Trumbull growing and sells seasonal produce, and plants. Plasko Country Store has an indoor bakery and ice cream bar.",
+          "website": "http://plaskofarm.com/"
         },
         { "name":"Layla's Falafel",
-            "address":"10 Broadway Rd", "phone": "203-590-3787",
-            "type": "food",
-            "description": "One of the oldest family owned farms located in Trumbull growing and sells seasonal produce, and plants. Plasko Country Store has an indoor bakery and ice cream bar"
+          "address":"10 Broadway Rd",
+          "phone": "203-590-3787",
+          "type": "food",
+          "description": "Offers authentic food of the middle east including off the grill, gourmet salads and side dishes.",
+          "website" : "http://greenleafcafe.com/"
         },
         { "name":"Jennie's Pizzeria",
-            "address":"380 Monroe Turnpike", "phone": "203-452-2435",
-            "type": "food",
-            "description": "Jennie’s is Fairfield County’s oldest pizzeria with three generations offering great food and friendship"
+          "address":"380 Monroe Turnpike",
+          "phone": "203-452-2435",
+          "type": "food",
+          "description": "Jennie’s is Fairfield County’s oldest pizzeria with three generations offering great food and friendship"
         },
         { "name":"Bridgeport Brewport",
-            "address":"225 South Frontage Road in Bridgeport", "phone": " 203-612-4438",
-            "type": "food, beer",
-            "description": "A modern industrial brewpub offering craft beer, pizza and salads in a chill, spacious setting.",
-            "city": "Bridgeport",
-            "zip": "06604",
-            "website": "https://brewportct.com/"
+          "address":"225 South Frontage Road",
+          "phone": " 203-612-4438",
+          "type": "food, beer",
+          "description": "A modern industrial brewpub offering craft beer, pizza and salads in a chill, spacious setting.",
+          "city": "Bridgeport",
+          "zip": "06604",
+          "website": "https://brewportct.com/",
+          "imgUrl": "https://static1.squarespace.com/static/55ce1e48e4b06614877a8bfb/t/588281d9379f949328ae3247/1471434122027/1000w/Brewport_Brewing_Co_Bridgeport.jpg"
         },
         { "name":"Two Roads Brewery",
-            "address":"225 South Frontage Road in Stratford", "phone": " 203-612-4438",
-            "type": "food, beer",
-            "description": "Here's to taking the road less traveled, in life and in beer!",
-            "city": "Stratford",
-            "zip": "06615",
-            "website": "https://tworoadsbrewing.com/"
+          "address":"225 South Frontage Road",
+          "phone": " 203-612-4438",
+          "type": "food, beer",
+          "description": "Here's to taking the road less traveled, in life and in beer!",
+          "city": "Stratford",
+          "zip": "06615",
+          "website": "https://tworoadsbrewing.com/",
+          "imgUrl": "http://ww1.hdnux.com/photos/17/41/31/4068972/7/920x920.jpg"
         },
         { "name":"Veracious Brewing",
-            "address":"246 Main St in Monroe", "phone": "203-880-5670",
-            "type": "beer",
-            "description": "Try a wide range of local craft beers on tap.  Open Thursdays, Fridays and Saturdays.",
-            "city": "Monroe",
-            "zip" : "06468",
-            "website": "http://www.veraciousbrewing.com/"
+          "address":"246 Main St", "phone":
+          "203-880-5670",
+          "type": "beer",
+          "description": "Try a wide range of local craft beers on tap.  Open Thursdays, Fridays and Saturdays.",
+          "city": "Monroe",
+          "zip" : "06468",
+          "website": "http://www.veraciousbrewing.com/",
+          "imgUrl" : "https://bloximages.chicago2.vip.townnews.com/connecticutmag.com/content/tncms/assets/v3/editorial/3/f5/3f5217a9-ac7c-572e-9faf-a7f3fc475230/584830d8a862f.image.jpg"
         },
         { "name":"Trumbull Mall",
-            "address":"5065 Main St", "phone": "203-372-4500",
-            "type": "shopping",
-            "description": "The Westfield Trumbull mall with 150 stores includes brand names Macy's, Target, Lord & Taylor and Panera Bread."
+          "address":"5065 Main St",
+          "phone": "203-372-4500",
+          "type": "shopping",
+          "description": "The Westfield Trumbull mall with 150 stores includes brand names Macy's, Target, Lord & Taylor and Panera Bread."
         },
+        { "name":"Hawley Lane Mall",
+          "address":"120 Hawley Lane",
+          "phone": "203-375-9298",
+          "type": "shopping",
+          "description": "Hawley Lane is a enclosed community center shopping mall with around 18 stores including Best Buy, HomeGoods, Kohl's, and Target.",
+          "website": "http://www.nrdc.com/"
+        }
     ],
     "activities":[
         {
             "name": "Rails to Trails",
             "description": "Try biking, walking or cross country skiing in winter on this wheelchair accessible converted railroad track.",
             "distance": "0"
-        },
-        {
-            "name": "Beaches",
-            "description": "In summer, local residents can use two town pools, beaches which has a zero entry that is great for children, or Tashua Pool.",
-            "distance": "3"
         },
         {
             "name": "Beaches",
@@ -93,21 +109,11 @@ var data = {
         }
     ],
     "trivia":[
-        {
-            "name": "Trumbulls sister city is Xinyi, in China's Jiangsu Province."
-        },
-        {
-            "name": "The National Little League of Trumbull were the 1989 Little League World Series champions."
-        },
-        {
-            "name": "The Trumbull High School Marching Band are the 2016 National Champions."
-        },
-        {
-            "name": "Trumbull is one of two locations in the state recognizing the Golden Hill Paugussett Indian Nation, descendants of the historic people who held this area in the colonial era."
-        },
-        {
-            "name": "Trumbull has the most recreational and open space per capita in the state of Connecticut."
-        },
+        "Trumbulls sister city is Xinyi, in China's Jiangsu Province.",
+        "The National Little League of Trumbull were the 1989 Little League World Series champions.",
+        "The Trumbull High School Marching Band are the 2016 National Champions.",
+        "Trumbull is one of two locations in the state recognizing the Golden Hill Paugussett Indian Nation, descendants of the historic people who held this area in the colonial era.",
+        "Trumbull has the most recreational and open space per capita in the state of Connecticut."
     ]
 };
 
@@ -159,7 +165,7 @@ var handlers = {
     },
 
     'ShoppingIntent': function () {
-        var location = randomArrayElement(getLocationsByType('ShoppingIntent'));
+        var location = randomArrayElement(getLocationsByType('shopping'));
         this.attributes['location'] = location.name;
 
         var say = 'Try shopping at, ' + location.name + '. Would you like to hear more?';
@@ -170,15 +176,15 @@ var handlers = {
         var locationName = this.attributes['location'];
         var location = getLocationsByName(locationName);
 
-        var say = location.name
-            + ' is located at ' + location.address
-            + ', the phone number is ' + location.phone + '.'
-            + location.description
-            + '.  I have sent these details to the Alexa App on your phone. ';
-
         var city = data.city;
         if (location.city)
           city = location.city;
+
+        var say = location.name
+            + ' is located at ' + location.address + ',' + city
+            + ', the phone number is ' + location.phone + ','
+            + location.description + ','
+            + 'I have sent these details to the Alexa App on your phone. ';
 
         var state = data.state;
         if (location.state)
@@ -188,13 +194,21 @@ var handlers = {
         if (location.zip)
           zip = location.zip;
 
-
         var card = location.name + '\n' + location.address + '\n'
             + city + ', ' + state + ' ' + zip
             + '\nphone: ' + location.phone + '\n';
+        if (location.website)
+            card += '\nwebsite: ' + location.website + '\n';
 
-        this.emit(':tellWithCard', say, location.name, card);
-
+        if (location.imgUrl) {
+          imageObj = {
+             smallImageUrl: location.imgUrl,
+             largeImageUrl: location.imgUrl
+          };
+          this.emit(':tellWithCard', say, location.name, card, imageObj);
+        } else {
+          this.emit(':tellWithCard', say, location.name, card);
+        }
     },
 
     'ActivityIntent': function () {
@@ -216,9 +230,7 @@ var handlers = {
     'TriviaIntent': function () {
 
         var trivia = randomArrayElement(data.trivia);
-        var say = trivia.name;
-
-        this.emit(':tell', say);
+        this.emit(':tell', trivia);
     },
 
     'WeatherIntent': function () {
