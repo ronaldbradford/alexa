@@ -1,56 +1,69 @@
-// 1. Text strings =====================================================================================================
-//    Modify these strings and messages to change the behavior of your Lambda function
-
+//  Define variables of data for use in intents
 var languageStrings = {
     'en': {
         'translation': {
-            'WELCOME' : "Welcome to Trumbull Connecticut Activities!",
-            'HELP'    : "Say about, to hear more about the city, or say food, to hear local restaurant suggestions, or say recommend an activity, or say, weather. ",
-            'ABOUT'   : "Trumbull is a town in Fairfield County, Connecticut bordered by the towns of Monroe, Shelton, Stratford, Bridgeport, Fairfield and Easton.",
+            'WELCOME' : "Welcome to the Trumbull Connecticut Guide!",
+            'HELP'    : "To find out more about Trumbull you can ask about shopping, food, trivia, activities, weather or more information.",
+            'ABOUT'   : "Trumbull is a town in Fairfield County, Connecticut, bordered by the towns of Monroe, Shelton, Stratford, Bridgeport, Fairfield and Easton.",
             'STOP'    : "Thanks for asking about Trumbull, Bye!"
         }
     }
- };
+};
+
 var data = {
     "city"        : "Trumbull",
     "state"       : "CT",
-    "postcode"    : "06611",
-    "restaurants" : [
+    "zip"         : "06611",
+    "locations" : [
         { "name":"Franco Gianni's Pizza",
             "address":"8 Broadway Rd", "phone": "203-268-1616",
-            "meals": "food",
+            "type": "food",
             "description": "Enjoy Sumptuous Italian Cuisine & Glorious Pizzas from this family owned and operated restaurant."
         },
         { "name":"Plasko's Farm Creamery",
             "address":"670 Daniels Farm Rd", "phone": "203-268-2716",
-            "meals": "food",
+            "type": "food",
             "description": "One of the oldest family owned farms located in Trumbull growing and sells seasonal produce, and plants. Plasko Country Store has an indoor bakery and ice cream bar"
         },
         { "name":"Layla's Falafel",
             "address":"10 Broadway Rd", "phone": "203-590-3787",
-            "meals": "food",
+            "type": "food",
             "description": "One of the oldest family owned farms located in Trumbull growing and sells seasonal produce, and plants. Plasko Country Store has an indoor bakery and ice cream bar"
         },
         { "name":"Jennie's Pizzeria",
             "address":"380 Monroe Turnpike", "phone": "203-452-2435",
-            "meals": "food",
+            "type": "food",
             "description": "Jennie’s is Fairfield County’s oldest pizzeria with three generations offering great food and friendship"
         },
         { "name":"Bridgeport Brewport",
             "address":"225 South Frontage Road in Bridgeport", "phone": " 203-612-4438",
-            "meals": "food, beer",
-            "description": "A modern industrial brewpub offering craft beer, pizza & salads in a chill, spacious setting."
+            "type": "food, beer",
+            "description": "A modern industrial brewpub offering craft beer, pizza and salads in a chill, spacious setting.",
+            "city": "Bridgeport",
+            "zip": "06604",
+            "website": "https://brewportct.com/"
         },
         { "name":"Two Roads Brewery",
-            "address":"225 South Frontage Road in Bridgeport", "phone": " 203-612-4438",
-            "meals": "food, beer",
-            "description": "A modern industrial brewpub offering craft beer, pizza & salads in a chill, spacious setting."
+            "address":"225 South Frontage Road in Stratford", "phone": " 203-612-4438",
+            "type": "food, beer",
+            "description": "Here's to taking the road less traveled, in life and in beer!",
+            "city": "Stratford",
+            "zip": "06615",
+            "website": "https://tworoadsbrewing.com/"
         },
         { "name":"Veracious Brewing",
             "address":"246 Main St in Monroe", "phone": "203-880-5670",
-            "meals": "beer",
-            "description": "Try a wide range of beers on tap.  Open Thursdays, Fridays and Saturdays."
-        }
+            "type": "beer",
+            "description": "Try a wide range of local craft beers on tap.  Open Thursdays, Fridays and Saturdays.",
+            "city": "Monroe",
+            "zip" : "06468",
+            "website": "http://www.veraciousbrewing.com/"
+        },
+        { "name":"Trumbull Mall",
+            "address":"5065 Main St", "phone": "203-372-4500",
+            "type": "shopping",
+            "description": "The Westfield Trumbull mall with 150 stores includes brand names Macy's, Target, Lord & Taylor and Panera Bread."
+        },
     ],
     "activities":[
         {
@@ -78,8 +91,25 @@ var data = {
             "description": "Visit this top Connecticut attraction and learn about many endangered and threatened species.",
             "distance": "10"
         }
+    ],
+    "trivia":[
+        {
+            "name": "Trumbulls sister city is Xinyi, in China's Jiangsu Province."
+        },
+        {
+            "name": "The National Little League of Trumbull were the 1989 Little League World Series champions."
+        },
+        {
+            "name": "The Trumbull High School Marching Band are the 2016 National Champions."
+        },
+        {
+            "name": "Trumbull is one of two locations in the state recognizing the Golden Hill Paugussett Indian Nation, descendants of the historic people who held this area in the colonial era."
+        },
+        {
+            "name": "Trumbull has the most recreational and open space per capita in the state of Connecticut."
+        },
     ]
-}
+};
 
 // Weather courtesy of the Yahoo Weather API.
 // This free API recommends no more than 2000 calls per day
@@ -113,36 +143,57 @@ var handlers = {
     },
 
     'FoodIntent': function () {
-        var restaurant = randomArrayElement(getRestaurantsByMeal('food'));
-        this.attributes['restaurant'] = restaurant.name;
+        var location = randomArrayElement(getLocationsByType('food'));
+        this.attributes['location'] = location.name;
 
-        var say = 'Enjoy food at, ' + restaurant.name + '. Would you like to hear more?';
+        var say = 'Enjoy food at, ' + location.name + '. Would you like to hear more?';
         this.emit(':ask', say);
     },
 
     'BeerIntent': function () {
-        var restaurant = randomArrayElement(getRestaurantsByMeal('beer'));
-        this.attributes['restaurant'] = restaurant.name;
+        var location = randomArrayElement(getLocationsByType('beer'));
+        this.attributes['location'] = location.name;
 
-        var say = 'Enjoy a great beer at, ' + restaurant.name + '. Would you like to hear more?';
+        var say = 'Enjoy a great beer at, ' + location.name + '. Would you like to hear more?';
+        this.emit(':ask', say);
+    },
+
+    'ShoppingIntent': function () {
+        var location = randomArrayElement(getLocationsByType('ShoppingIntent'));
+        this.attributes['location'] = location.name;
+
+        var say = 'Try shopping at, ' + location.name + '. Would you like to hear more?';
         this.emit(':ask', say);
     },
 
     'AMAZON.YesIntent': function () {
-        var restaurantName = this.attributes['restaurant'];
-        var restaurantDetails = getRestaurantByName(restaurantName);
+        var locationName = this.attributes['location'];
+        var location = getLocationsByName(locationName);
 
-        var say = restaurantDetails.name
-            + ' is located at ' + restaurantDetails.address
-            + ', the phone number is ' + restaurantDetails.phone + '.'
-            + restaurantDetails.description
-            + '  I have sent these details to the Alexa App on your phone. ';
+        var say = location.name
+            + ' is located at ' + location.address
+            + ', the phone number is ' + location.phone + '.'
+            + location.description
+            + '.  I have sent these details to the Alexa App on your phone. ';
 
-        var card = restaurantDetails.name + '\n' + restaurantDetails.address + '\n'
-            + data.city + ', ' + data.state + ' ' + data.postcode
-            + '\nphone: ' + restaurantDetails.phone + '\n';
+        var city = data.city;
+        if (location.city)
+          city = location.city;
 
-        this.emit(':tellWithCard', say, restaurantDetails.name, card);
+        var state = data.state;
+        if (location.state)
+          state = location.state;
+
+        var zip = data.zip;
+        if (location.zip)
+          zip = location.zip;
+
+
+        var card = location.name + '\n' + location.address + '\n'
+            + city + ', ' + state + ' ' + zip
+            + '\nphone: ' + location.phone + '\n';
+
+        this.emit(':tellWithCard', say, location.name, card);
 
     },
 
@@ -162,6 +213,14 @@ var handlers = {
         this.emit(':tell', say);
     },
 
+    'TriviaIntent': function () {
+
+        var trivia = randomArrayElement(data.trivia);
+        var say = trivia.name;
+
+        this.emit(':tell', say);
+    },
+
     'WeatherIntent': function () {
 
         getWeather( ( localTime, currentTemp, currentCondition) => {
@@ -171,12 +230,12 @@ var handlers = {
 
             // sample API URL for Irvine, CA
             // https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22irvine%2C%20ca%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys
-            celsius = String(parseInt((parseInt(currentTemp) - 32) * 5/9))
-            this.emit(':tell', 'It is ' + currentCondition 
+            celsius = String(parseInt((parseInt(currentTemp) - 32) * 5/9));
+            this.emit(':tell', 'It is ' + currentCondition
                 + ' at ' + localTime
                 + ' in ' + data.city
                 + ' with the weather at  '
-                + currentTemp + 'fahrenheit, that is ' 
+                + currentTemp + 'fahrenheit, that is '
                 + celsius + 'celsius' );
         });
     },
@@ -199,36 +258,31 @@ var handlers = {
 //    END of Intent Handlers {} ========================================================================================
 // 3. Helper Function  =================================================================================================
 
-function getRestaurantsByMeal(mealtype) {
+function getLocationsByType(locationType) {
 
     var list = [];
-    for (var i = 0; i < data.restaurants.length; i++) {
-
-        if(data.restaurants[i].meals.search(mealtype) >  -1) {
-            list.push(data.restaurants[i]);
+    for (var i = 0; i < data.locations.length; i++) {
+        if(data.locations[i].type.search(locationType) >  -1) {
+            list.push(data.locations[i]);
         }
     }
     return list;
 }
 
-function getRestaurantByName(restaurantName) {
+function getLocationsByName(locationName) {
 
-    var restaurant = {};
-    for (var i = 0; i < data.restaurants.length; i++) {
-
-        if(data.restaurants[i].name == restaurantName) {
-            restaurant = data.restaurants[i];
+    for (var i = 0; i < data.locations.length; i++) {
+        if(data.locations[i].name == locationName) {
+            return data.locations[i];
         }
     }
-    return restaurant;
+    return {};
 }
 
 function getActivitiesByDistance(maxDistance) {
 
     var list = [];
-
     for (var i = 0; i < data.activities.length; i++) {
-
         if(parseInt(data.activities[i].distance) <= maxDistance) {
             list.push(data.activities[i]);
         }
@@ -238,7 +292,6 @@ function getActivitiesByDistance(maxDistance) {
 
 function getWeather(callback) {
     var https = require('https');
-
 
     var req = https.request(myAPI, res => {
         res.setEncoding('utf8');
