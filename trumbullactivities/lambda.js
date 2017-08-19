@@ -247,8 +247,8 @@ var handlers = {
                 + ' at ' + localTime
                 + ' in ' + data.city
                 + ' with the weather at  '
-                + currentTemp + 'fahrenheit, that is '
-                + celsius + 'celsius' );
+                + currentTemp + ' fahrenheit, that is '
+                + celsius + ' celsius' );
         });
     },
 
