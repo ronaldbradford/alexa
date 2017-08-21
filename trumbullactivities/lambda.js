@@ -3,7 +3,7 @@ var languageStrings = {
     'en': {
         'translation': {
             'WELCOME' : "Welcome to the Trumbull Connecticut Guide!",
-            'HELP'    : "To find out more about Trumbull you can ask about where to go for shopping, places to eat food, interesting trivia, recommend an activity, give me something to do, check the weather or more information about Trumbull.",
+            'HELP'    : "To find out more on Trumbull you can ask questions like, where to go for shopping, places to eat food, interesting trivia, recommend an activity, check the weather or more information.",
             'ABOUT'   : "Trumbull is a town in Fairfield County, Connecticut, bordered by the towns of Monroe, Shelton, Stratford, Bridgeport, Fairfield and Easton.",
             'STOP'    : "Thanks for asking about Trumbull, Bye!"
         }
@@ -19,28 +19,28 @@ var data = {
           "address":"8 Broadway Rd",
           "phone": "203-268-1616",
           "type": "food",
-          "description": "Enjoy Sumptuous Italian Cuisine & Glorious Pizzas from this family owned and operated restaurant.",
+          "description": "Sumptuous Italian Cuisine & Glorious Pizzas from this family owned and operated restaurant.",
           "website": "http://francogiannistrumbull.com/"
         },
         { "name":"Plasko's Farm Creamery",
           "address":"670 Daniels Farm Rd",
           "phone": "203-268-2716",
           "type": "food",
-          "description": "One of the oldest family owned farms located in Trumbull growing and sells seasonal produce, and plants. Plasko Country Store has an indoor bakery and ice cream bar.",
+          "description": "One of the oldest family owned farms located in Trumbull growing and selling seasonal produce, and plants. The plasko country store has an indoor bakery and ice cream bar.",
           "website": "http://plaskofarm.com/"
         },
         { "name":"Layla's Falafel",
           "address":"10 Broadway Rd",
           "phone": "203-590-3787",
           "type": "food",
-          "description": "Offers authentic food of the middle east including off the grill, gourmet salads and side dishes.",
+          "description": "Offers authentic food from the middle east including off the grill meats, gourmet salads and side dishes.",
           "website" : "http://greenleafcafe.com/"
         },
         { "name":"Jennie's Pizzeria",
           "address":"380 Monroe Turnpike",
           "phone": "203-452-2435",
           "type": "food",
-          "description": "Jennie’s is Fairfield County’s oldest pizzeria with three generations offering great food and friendship"
+          "description": "Fairfield County’s oldest pizzeria offers great pizzas and pastas and a history spanning three generations."
         },
         { "name":"Bridgeport Brewport",
           "address":"225 South Frontage Road",
@@ -76,7 +76,7 @@ var data = {
           "address":"5065 Main St",
           "phone": "203-372-4500",
           "type": "shopping",
-          "description": "The Westfield Trumbull mall with 150 stores includes brand names Macy's, Target, Lord & Taylor and Panera Bread."
+          "description": "This Westfield mall has over 150 stores including brand names Macy's, Target, Lord & Taylor and Panera Bread."
         },
         { "name":"Hawley Lane Mall",
           "address":"120 Hawley Lane",
@@ -152,7 +152,8 @@ var handlers = {
         var location = randomArrayElement(getLocationsByType('food'));
         this.attributes['location'] = location.name;
 
-        var say = 'Enjoy food at, ' + location.name + '. Would you like to hear more?';
+        var say = 'Enjoy food at, ' + location.name + ',' + location.description +
+                  '. Would you like to hear more?';
         this.emit(':ask', say);
     },
 
@@ -160,7 +161,8 @@ var handlers = {
         var location = randomArrayElement(getLocationsByType('beer'));
         this.attributes['location'] = location.name;
 
-        var say = 'Enjoy a great beer at, ' + location.name + '. Would you like to hear more?';
+        var say = 'Enjoy a great beer at, ' + location.name + ',' + location.description + 
+                  '. Would you like to hear more?';
         this.emit(':ask', say);
     },
 
@@ -168,7 +170,8 @@ var handlers = {
         var location = randomArrayElement(getLocationsByType('shopping'));
         this.attributes['location'] = location.name;
 
-        var say = 'Try shopping at, ' + location.name + '. Would you like to hear more?';
+        var say = 'Try shopping at, ' + location.name + ',' + location.description + 
+                  '. Would you like to hear more?';
         this.emit(':ask', say);
     },
 
@@ -183,7 +186,6 @@ var handlers = {
         var say = location.name
             + ' is located at ' + location.address + ',' + city
             + ', the phone number is ' + location.phone + ','
-            + location.description + ','
             + 'I have sent these details to the Alexa App on your phone. ';
 
         var state = data.state;
