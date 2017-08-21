@@ -65,7 +65,8 @@
         "food",
         "lunch",
         "restaurant",
-        "diner"
+        "diner",
+        "places to eat food"
       ],
       "slots": []
     },
@@ -74,7 +75,8 @@
       "samples": [
         "purchase a gift",
         "go shopping",
-        "where can I buy stuff"
+        "where can I buy stuff",
+        "where to go for shopping"
       ],
       "slots": []
     },
@@ -85,7 +87,8 @@
         "trivia",
         "fun facts",
         "trivia question",
-        "give me a piece of local trivia"
+        "give me a piece of local trivia",
+        "interesting trivia"
       ],
       "slots": []
     },
@@ -96,7 +99,7 @@
         "weather",
         "temperature",
         "give me the weather",
-        "check the current weather"
+        "check the weather"
       ],
       "slots": []
     }
