@@ -49,8 +49,7 @@ var data = {
           "description": "A modern industrial brewpub offering craft beer, pizza and salads in a chill, spacious setting.",
           "city": "Bridgeport",
           "zip": "06604",
-          "website": "https://brewportct.com/",
-          "imgUrl": "https://static1.squarespace.com/static/55ce1e48e4b06614877a8bfb/t/588281d9379f949328ae3247/1471434122027/1000w/Brewport_Brewing_Co_Bridgeport.jpg"
+          "website": "https://brewportct.com/"
         },
         { "name":"Two Roads Brewery",
           "address":"225 South Frontage Road",
@@ -59,8 +58,7 @@ var data = {
           "description": "Here's to taking the road less traveled, in life and in beer!",
           "city": "Stratford",
           "zip": "06615",
-          "website": "https://tworoadsbrewing.com/",
-          "imgUrl": "http://ww1.hdnux.com/photos/17/41/31/4068972/7/920x920.jpg"
+          "website": "https://tworoadsbrewing.com/"
         },
         { "name":"Veracious Brewing",
           "address":"246 Main St", "phone":
@@ -69,8 +67,7 @@ var data = {
           "description": "Try a wide range of local craft beers on tap.  Open Thursdays, Fridays and Saturdays.",
           "city": "Monroe",
           "zip" : "06468",
-          "website": "http://www.veraciousbrewing.com/",
-          "imgUrl" : "https://bloximages.chicago2.vip.townnews.com/connecticutmag.com/content/tncms/assets/v3/editorial/3/f5/3f5217a9-ac7c-572e-9faf-a7f3fc475230/584830d8a862f.image.jpg"
+          "website": "http://www.veraciousbrewing.com/"
         },
         { "name":"Trumbull Mall",
           "address":"5065 Main St",
