@@ -19,7 +19,7 @@ var data = {
           "address":"8 Broadway Rd",
           "phone": "203-268-1616",
           "type": "food",
-          "description": "Sumptuous Italian Cuisine & Glorious Pizzas from this family owned and operated restaurant.",
+          "description": "Sumptuous Italian Cuisine and Glorious Pizzas from this family owned and operated restaurant.",
           "website": "http://francogiannistrumbull.com/"
         },
         { "name":"Plasko's Farm Creamery",
@@ -73,7 +73,7 @@ var data = {
           "address":"5065 Main St",
           "phone": "203-372-4500",
           "type": "shopping",
-          "description": "This Westfield mall has over 150 stores including brand names Macy's, Target, Lord & Taylor and Panera Bread."
+          "description": "This Westfield mall has over 150 stores including brand names Macy's, Target, Lord and Taylor and Panera Bread."
         },
         { "name":"Hawley Lane Mall",
           "address":"120 Hawley Lane",
@@ -199,15 +199,7 @@ var handlers = {
         if (location.website)
             card += '\nwebsite: ' + location.website + '\n';
 
-        if (location.imgUrl) {
-          imageObj = {
-             smallImageUrl: location.imgUrl,
-             largeImageUrl: location.imgUrl
-          };
-          this.emit(':tellWithCard', say, location.name, card, imageObj);
-        } else {
-          this.emit(':tellWithCard', say, location.name, card);
-        }
+        this.emit(':tellWithCard', say, location.name, card);
     },
 
     'ActivityIntent': function () {
